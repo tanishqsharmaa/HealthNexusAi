@@ -17,7 +17,6 @@ def create_test_result(test_result: TestResultCreate, db: Session = Depends(get_
     db.add(db_test_result)
     db.commit()
     db.refresh(db_test_result)
-    
     return db_test_result
 
 # Get a test result by ID
@@ -45,12 +44,10 @@ def get_test_result_interpretation(test_result_id: int, db: Session = Depends(ge
     if not db_test_result:
         raise HTTPException(status_code=404, detail="Test result not found")
     
-    # Assuming we have a function to interpret the test result
     interpretation = interpret_test_result(db_test_result)
     
     return interpretation
 
-# Function to interpret test results
 def interpret_test_result(test_result):
     # Basic interpretation based on test result data, for example:
     if test_result.result_value > 100:  # Example threshold for a test result
