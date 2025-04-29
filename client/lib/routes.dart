@@ -1,4 +1,3 @@
-// Placeholder for application route definitions 
 import 'package:flutter/material.dart';
 import 'screens/auth/login_screen.dart';
 import 'screens/auth/signup_screen.dart';
@@ -17,7 +16,10 @@ final Map<String, WidgetBuilder> appRoutes = {
   '/reports': (context) => const ReportsScreen(),
   '/appointments': (context) => const AppointmentsScreen(),
   '/chatList': (context) => const ChatListScreen(),
-  '/chat': (context) => const ChatScreen(),
+  '/chat': (context) {
+    final chatName = ModalRoute.of(context)!.settings.arguments as String;
+    return ChatScreen(chatName: chatName);
+  },
   '/profile': (context) => const ProfileScreen(),
   '/editProfile': (context) => const EditProfileScreen(),
 };

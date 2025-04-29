@@ -1,4 +1,3 @@
-// Placeholder for common button widget 
 import 'package:flutter/material.dart';
 
 class CommonButton extends StatelessWidget {
